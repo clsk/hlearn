@@ -37,15 +37,8 @@ baseBoard = [
 				baseRow 8 Red False
 			]
 
-
-getRowPiece :: Point -> Row -> Maybe Piece
-getRowPiece (Point x _) row =  row !! x
-
-getRow :: Point -> Board -> Row
-getRow (Point _ y) board = board !! y
-
 getPiece :: Point -> Board -> Maybe Piece
-getPiece pt board = getRowPiece pt $ getRow pt board
+getPiece (Point x y) board = (board !! y) !! x
 
 movePiece :: Point -> Point -> Board
 movePiece (Point x1 y1) (Point x2 y2) = baseBoard
